@@ -1,4 +1,3 @@
-import 'dart:math';
 
 void main(List<String> args) {
   var arr = [71, 55, 82, 55];
