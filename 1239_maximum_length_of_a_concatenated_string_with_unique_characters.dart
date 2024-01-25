@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Solution {
   bool isUnique(String s) {
     Set<String> visited = {};
@@ -32,7 +34,24 @@ class Solution {
   }
 }
 
+class Solution2 {
+  int maxLength(List a) {
+    List r = [''];
+    for (int i = 0; i < a.length; i++) {
+      List c = [];
+      for (String e in r) {
+        final n = '$e${a[i]}';
+        if (n.split('').toSet().toList().length == n.length) c.add(n);
+      }
+      r.addAll(c);
+    }
+    int m = 0;
+    for (String s in r) m = max(m, s.length);
+    return m;
+  }
+} 
+
 void main(List<String> args) {
   List<String> arr = ["abcdefghijklmnopqrstuvwxyz"];
-  print(Solution().maxLength(arr));
+  print(Solution2().maxLength(arr));
 }
